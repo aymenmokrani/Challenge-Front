@@ -7,7 +7,7 @@ import axios from 'axios'
 function App() {
 
 
-  const server = "whispering-basin-81140.herokuapp.com"
+  const server = "https://whispering-basin-81140.herokuapp.com/api/getname"
   const [{ name }, dispatch] = useDataLayerValue()
 
   console.log(name);
