@@ -7,7 +7,7 @@ import axios from 'axios'
 function App() {
 
 
-  const server = "https://whispering-basin-81140.herokuapp.com/api/getname"
+  const server = "https://whispering-basin-81140.herokuapp.com"
   const [{ name }, dispatch] = useDataLayerValue()
 
   console.log(name);
@@ -22,7 +22,9 @@ function App() {
           payload: response.data
         })
       }).catch(error => {
-        if (error.response.status === 404) {
+        console.log(error);
+        const status = error.response.status
+        if (status && status === 404) {
           console.log("api was not found");
         }
       })
