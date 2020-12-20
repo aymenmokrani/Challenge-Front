@@ -14,10 +14,12 @@ function App() {
 
   const addUser = async () => {
     try {
-      const response = await axios.post(`${server}/users/create`, {name: userField})
+      const response = await axios.post(`${server}/users/create`, {name: userField.trim()})
       console.log(response);  
+      setUserField('')
     } catch (error) {
       console.log(error.reponse);
+      setUserField('')
     }
     
   }
@@ -59,6 +61,7 @@ function App() {
                 color="primary" 
                 style={{margin: '20px 0'}}
                 onClick={addUser}
+                disabled={!userField.trim().length}
                 >Add User</Button>
       </div>
       <hr/>
