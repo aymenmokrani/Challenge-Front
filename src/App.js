@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import './App.css';
 import { useDataLayerValue } from './utils/DataLayer';
 import axios from 'axios'
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 
 function App() {
@@ -37,7 +38,9 @@ function App() {
 
   return (
     <div className="App">
-      <h1>look what I'm getting from server {`=>`} {name} :) </h1>
+      
+      <h1>look what I'm getting from server :) </h1>
+      <h1>{name ? name : <CircularProgress />}</h1> 
     </div>
   );
 }
