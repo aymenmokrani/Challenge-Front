@@ -6,6 +6,8 @@ import axios from 'axios'
 
 function App() {
 
+
+  const server = "whispering-basin-81140.herokuapp.com"
   const [{ name }, dispatch] = useDataLayerValue()
 
   console.log(name);
@@ -14,7 +16,7 @@ function App() {
 
   useEffect(() => {
     try {
-      axios.get('api/getname').then(response => {
+      axios.get(`${server}/api/getname`).then(response => {
         dispatch({
           type: "SET_NAME",
           payload: response.data
