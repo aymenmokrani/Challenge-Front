@@ -9,13 +9,20 @@ function App() {
 
 
   const server = "https://whispering-basin-81140.herokuapp.com"
-  const [{ name }, dispatch] = useDataLayerValue()
+  const localServer= "http://localhost:4000"
+  const [{ name, users }, dispatch] = useDataLayerValue()
   const [userField, setUserField] = useState('')
+
 
   const addUser = async () => {
     try {
       const response = await axios.post(`${server}/users/create`, {name: userField.trim()})
       console.log(response);  
+      const nzir = [...users, {name: userField}]
+      dispatch({
+        type: "SET_USERS",
+        payload: nzir
+      })
       setUserField('')
     } catch (error) {
       console.log(error.reponse);
@@ -38,6 +45,16 @@ function App() {
           console.log("api was not found");
         }
       })
+
+      axios.get(`${server}/users/all`).then(response => {
+        const users = response.data
+        dispatch({
+          type: "SET_USERS",
+          payload: users
+        })
+      })
+
+
     } catch (error) {
       console.log(error.message);
     }
@@ -67,9 +84,11 @@ function App() {
       <hr/>
       <div className="listUsers" style={{display: 'flex', flexDirection: 'column'}}>
       <h3>List of users here</h3>
-      <span>user 1</span>
-      <span>user 1</span>
-      <span>user 1</span>
+      {
+        users?.map((user, idx) => (
+          <span key={idx}>{user.name}</span>
+        ))
+      }
       </div>
       
     </div>

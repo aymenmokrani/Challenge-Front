@@ -1,5 +1,6 @@
 export const initialState = {
-    name: ''
+    name: '',
+    users: []
 }
 
 
@@ -10,7 +11,11 @@ const reducer = (state, action) => {
                 ...state,
                 name: action.payload
             }
-
+        case "SET_USERS":
+            return {
+                ...state,
+                users: action.payload
+            }
         default: return state
     }
 }
