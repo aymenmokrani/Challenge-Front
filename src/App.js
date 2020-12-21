@@ -8,8 +8,8 @@ import { CircularProgress, TextField, Button } from '@material-ui/core';
 function App() {
 
 
-  const server = "https://whispering-basin-81140.herokuapp.com"
-  const localServer= "http://localhost:4000"
+  // const server = "https://whispering-basin-81140.herokuapp.com"
+  const server= "http://localhost:4000"
   const [{ name, users }, dispatch] = useDataLayerValue()
   const [userField, setUserField] = useState('')
 
@@ -17,15 +17,13 @@ function App() {
   const addUser = async () => {
     try {
       const response = await axios.post(`${server}/users/create`, {name: userField.trim()})
-      console.log(response);  
-      const nzir = [...users, {name: userField}]
       dispatch({
         type: "SET_USERS",
-        payload: nzir
+        payload: [...users, {name: userField}]
       })
       setUserField('')
     } catch (error) {
-      console.log(error.reponse);
+      console.log(error.response.data);
       setUserField('')
     }
     
