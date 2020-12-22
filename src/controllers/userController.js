@@ -1,6 +1,6 @@
 import axios from 'axios'
-// const server = "https://whispering-basin-81140.herokuapp.com/users"
-const server= "http://localhost:4000/users"
+const server = "https://whispering-basin-81140.herokuapp.com/users"
+// const server= "http://localhost:4000/users"
 
 
 
