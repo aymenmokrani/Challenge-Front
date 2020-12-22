@@ -1,0 +1,46 @@
+.userBar {
+  width: 80%;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 1px auto;
+  background-color: #f44336;
+  display: flex;
+
+  input {
+    background-color: white;
+    width: 80%;
+    border: 0;
+    text-align: center;
+    padding: 10px;
+    transition: 0.2s ease-in-out;
+
+    &.disabled {
+      background-color: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      outline: none;
+
+      &:hover {
+        background-color: white;
+      }
+    }
+  }
+
+  .actions {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    & > div {
+      background-color: rgba(255, 255, 255, 0.9);
+      width: 40%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: 0.2s ease-in-out;
+
+      &:hover {
+        background-color: white;
+        cursor: pointer;
+      }
+    }
+  }
+}
