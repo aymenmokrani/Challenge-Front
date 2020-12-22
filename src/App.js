@@ -43,11 +43,10 @@ function App() {
 
   return (
     <div className="App">
-      <Button variant="contained" onClick={() => deleteOne(dispatch)}>try here</Button>
-      <h1>look what I'm getting from server :) </h1>
+      <h1>MERN Challenge List App :) </h1>
       <hr/>
       <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center'}}>
-        <TextField label="user name" 
+        <TextField label="Enter a new challenge" 
                   variant="outlined" 
                   value={userField}
                   onChange={(e) => setUserField(e.target.value)} 
@@ -57,11 +56,11 @@ function App() {
                 style={{margin: '20px 0'}}
                 onClick={() => {addUser(dispatch, userField); setUserField('')}}
                 disabled={!userField.trim().length}
-                >Add User</Button>
+                >Add Challenges</Button>
       </div>
       <hr/>
       <div className="listUsers" style={{display: 'flex', flexDirection: 'column'}}>
-      <h3>List of users here</h3>
+      <h3>My list of challenges</h3>
       {/* <UserBar name="book"/> */}
       {
         !users.length ? <span>no users yet</span> :
